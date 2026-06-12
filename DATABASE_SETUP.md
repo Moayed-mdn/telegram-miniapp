@@ -20,8 +20,8 @@ When using **serverless databases** (Neon, Supabase, PlanetScale), you need TWO 
 Your `.env` currently has:
 
 ```env
-DATABASE_URL="postgresql://neondb_owner:npg_1OvAlWs0SuFT@ep-summer-snow-aidg5jgp.c-4.us-east-1.aws.neon.tech/tgapp?sslmode=require&channel_binding=require"
-DIRECT_URL="postgresql://neondb_owner:npg_1OvAlWs0SuFT@ep-summer-snow-aidg5jgp.c-4.us-east-1.aws.neon.tech/tgapp?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://neondb_owner:<YOUR_PASSWORD>@ep-summer-snow-aidg5jgp.c-4.us-east-1.aws.neon.tech/tgapp?sslmode=require&channel_binding=require"
+DIRECT_URL="postgresql://neondb_owner:<YOUR_PASSWORD>@ep-summer-snow-aidg5jgp.c-4.us-east-1.aws.neon.tech/tgapp?sslmode=require&channel_binding=require"
 ```
 
 ### ⚠️ Important Note
@@ -53,10 +53,10 @@ Port: 5432
 
 ```env
 # Runtime - Uses pooled connection (note .pooler. in hostname)
-DATABASE_URL="postgresql://neondb_owner:npg_1OvAlWs0SuFT@ep-summer-snow-aidg5jgp.pooler.c-4.us-east-1.aws.neon.tech/tgapp?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://neondb_owner:<YOUR_PASSWORD>@ep-summer-snow-aidg5jgp.pooler.c-4.us-east-1.aws.neon.tech/tgapp?sslmode=require&channel_binding=require"
 
 # Migrations - Uses direct connection (no .pooler. in hostname)
-DIRECT_URL="postgresql://neondb_owner:npg_1OvAlWs0SuFT@ep-summer-snow-aidg5jgp.c-4.us-east-1.aws.neon.tech/tgapp?sslmode=require&channel_binding=require"
+DIRECT_URL="postgresql://neondb_owner:<YOUR_PASSWORD>@ep-summer-snow-aidg5jgp.c-4.us-east-1.aws.neon.tech/tgapp?sslmode=require&channel_binding=require"
 ```
 
 **Notice the difference:** `.pooler.` is added to the hostname for `DATABASE_URL`.
