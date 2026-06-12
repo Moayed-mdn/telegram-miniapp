@@ -12,12 +12,6 @@
   # After deployment succeeds, rotate all credentials and re-enable scanning
   SECRETS_SCAN_ENABLED = "false"
 
-# Redirect all requests to Next.js
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/___netlify-handler"
-  status = 200
-  force = true
 
 # Environment variables are set in Netlify dashboard
 # Don't put secrets here!
