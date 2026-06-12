@@ -1,0 +1,76 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npm run prisma:generate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Run database migrations
+        run: npm run prisma:deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Build application
+        run: npm run build
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          SESSION_JWT_SECRET: ${{ secrets.SESSION_JWT_SECRET }}
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+          INITDATA_MAX_AGE_SECONDS: ${{ secrets.INITDATA_MAX_AGE_SECONDS }}
+
+      # If deploying to Vercel (alternative to their GitHub integration)
+      - name: Deploy to Vercel
+        if: vars.DEPLOY_TARGET == 'vercel'
+        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      # If deploying via Docker
+      - name: Build and push Docker image
+        if: vars.DEPLOY_TARGET == 'docker'
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_IMAGE }}:latest
+
+      - name: Health check
+        if: success()
+        run: |
+          echo "Waiting 30s for deployment to stabilize..."
+          sleep 30
+          curl -f ${{ secrets.NEXT_PUBLIC_APP_URL }}/api/health || exit 1
+
+      - name: Notify deployment success
+        if: success()
+        run: echo "✅ Deployment successful!"
+
+      - name: Notify deployment failure
+        if: failure()
+        run: echo "❌ Deployment failed!"

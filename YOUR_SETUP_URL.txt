@@ -1,0 +1,100 @@
+═══════════════════════════════════════════════════════
+  YOUR TELEGRAM MINI APP SETUP - COPY THIS URL!
+═══════════════════════════════════════════════════════
+
+✅ Your Dev Server: http://localhost:3002
+✅ Your HTTPS Tunnel: https://undergraduate-maine-sessions-renewable.trycloudflare.com
+
+📋 COPY THIS URL (You'll paste it in BotFather):
+
+https://undergraduate-maine-sessions-renewable.trycloudflare.com
+
+═══════════════════════════════════════════════════════
+  HOW TO USE THIS IN BOTFATHER
+═══════════════════════════════════════════════════════
+
+METHOD 1: Create Web App (/newapp)
+───────────────────────────────────
+
+1. Open Telegram → Find @BotFather
+
+2. Send: /newapp
+
+3. BotFather asks: "Choose a bot"
+   → Select your bot from the list
+
+4. BotFather asks: "Send me a title for your Mini App"
+   → Type: Mini App
+   
+5. BotFather asks: "Now choose a short name"
+   → Type: app
+   
+6. BotFather asks: "Now send me a detailed description"
+   → Type: My Telegram Mini App
+   
+7. BotFather asks: "Now send me a photo"
+   → Send: /empty
+   
+8. BotFather asks: "Now send me a demo GIF"
+   → Send: /empty
+   
+9. BotFather asks: "Now send me the URL to your Web App"
+   → PASTE THIS:
+   
+   https://undergraduate-maine-sessions-renewable.trycloudflare.com
+
+10. Done! BotFather will give you a link like:
+    https://t.me/yourbot/app
+
+
+METHOD 2: Add Menu Button (/setmenubutton)
+───────────────────────────────────────────
+
+1. Send to @BotFather: /setmenubutton
+
+2. BotFather asks: "Choose a bot"
+   → Select your bot
+
+3. BotFather shows buttons:
+   • Configure menu button
+   • Edit menu button URL
+   • Remove menu button
+   
+   → Tap: "Edit menu button URL"
+   
+   OR if you see different options:
+   
+   • Default commands
+   • Send a Web App
+   
+   → Tap: "Send a Web App"
+   
+4. BotFather asks for URL (or Web App)
+   → PASTE THIS:
+   
+   https://undergraduate-maine-sessions-renewable.trycloudflare.com
+
+5. BotFather asks: "Send the text for the menu button"
+   → Type: Open App
+   
+6. Done! ✅
+
+
+TESTING YOUR APP
+────────────────
+
+1. Open your bot in Telegram
+2. Look at bottom-left corner for menu button (☰)
+3. Tap the button
+4. App should open inside Telegram!
+
+═══════════════════════════════════════════════════════
+
+⚠️  IMPORTANT: Keep these terminals running!
+
+Terminal 1: npm run dev (Your app)
+Terminal 2: cloudflared tunnel (Your HTTPS tunnel)
+
+If you close either, the app won't work!
+
+═══════════════════════════════════════════════════════

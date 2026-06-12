@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Telegram Mini App",
+    "loading": "Loading…",
+    "welcome": "Welcome, {name}!",
+    "guest": "Guest"
+  },
+  "auth": {
+    "authenticating": "Signing you in…",
+    "failed": "Authentication failed. Please reopen the app from Telegram."
+  },
+  "fallback": {
+    "title": "Open in Telegram",
+    "description": "This app only works inside Telegram. Open it from your bot's menu button.",
+    "cta": "Open Telegram"
+  },
+  "home": {
+    "heading": "Home",
+    "description": "You are signed in with your Telegram account."
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "ar": "Arabic"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred.",
+    "retry": "Try again"
+  }
+}
