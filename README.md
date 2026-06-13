@@ -2,6 +2,17 @@
 
 A production-ready Telegram Web App (Mini App) built with Next.js 15, featuring secure authentication, RTL support for Arabic, and automatic theme adaptation.
 
+[![Open in Telegram](https://img.shields.io/badge/Open%20in-Telegram-blue?style=for-the-badge&logo=telegram)](https://t.me/my_miniapp_moayad_bot/app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://ephemeral-squirrel-4a4d16.netlify.app/)
+
+## 🚀 Live Demo
+
+- **Telegram Bot:** [@my_miniapp_moayad_bot](https://t.me/my_miniapp_moayad_bot/app)
+- **Web App URL:** https://ephemeral-squirrel-4a4d16.netlify.app/
+- **Deploy Status:** [![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_SITE_ID/deploy-status)](https://app.netlify.com/sites/ephemeral-squirrel-4a4d16/deploys)
+
+> **Note:** The app is designed to work inside Telegram. Open it via the bot link above for the full experience with user authentication and theme integration.
+
 ## ✨ Features
 
 - 🔒 **Secure Authentication**: Server-side HMAC-SHA256 validation of Telegram initData
@@ -235,7 +246,28 @@ Tests cover:
 
 ## 🚢 Deployment
 
-### Vercel (Recommended)
+### Current Deployment
+
+This app is currently deployed on **Netlify**:
+- **URL:** https://ephemeral-squirrel-4a4d16.netlify.app/
+- **Bot Link:** [@my_miniapp_moayad_bot](https://t.me/my_miniapp_moayad_bot/app)
+
+### Netlify Deployment
+
+The project includes `netlify.toml` configuration for automatic deployments:
+
+1. Push to GitHub (main branch)
+2. Netlify automatically builds and deploys
+3. Set environment variables in Netlify dashboard:
+   - `DATABASE_URL` (use pooled connection string)
+   - `DIRECT_URL` (for migrations)
+   - `TELEGRAM_BOT_TOKEN`
+   - `SESSION_JWT_SECRET`
+   - `NEXT_PUBLIC_APP_URL`
+   - `INITDATA_MAX_AGE_SECONDS`
+4. Deploy automatically on push
+
+### Vercel (Alternative)
 
 1. Push to GitHub
 2. Connect to Vercel
